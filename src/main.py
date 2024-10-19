@@ -22,12 +22,12 @@ def generate_seating_chart(layout: pd.DataFrame, students: str):
     seating_chart_df = seating_chart_df.astype(object)
     for i in range(rows):
         for j in range(cols):
-            if layout.iloc[i, j] == 1:
+            if layout.iloc[i, j] == 1 or layout.iloc[i, j] == '1':
                 if len(students) > 0:
                     seating_chart_df.iloc[i, j] = students.pop(0)
                 else:
                     seating_chart_df.iloc[i, j] = ''
-            elif layout.iloc[i, j] == 0:
+            elif layout.iloc[i, j] == 0 or layout.iloc[i, j] == '0':
                 seating_chart_df.iloc[i, j] = ''
     return seating_chart_df
 
